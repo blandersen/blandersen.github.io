@@ -1,7 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            margin: 0;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
 <body>
-<h1>Blake Andersen</h1>
-<p>Hi. I'm a fluid enthusiast. I'll get around to this some day.</p>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <p>A space to showcase my projects and interests</p>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm [Your Name], a [Your Profession/Interests]. This website is my personal corner on the internet where I share my work, hobbies, and thoughts. Feel free to explore!</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Here are some of my recent projects:</p>
+        <ul>
+            <li><a href="https://github.com/yourusername/project1">Project 1</a> - Description of Project 1</li>
+            <li><a href="https://github.com/yourusername/project2">Project 2</a> - Description of Project 2</li>
+            <li><a href="https://github.com/yourusername/project3">Project 3</a> - Description of Project 3</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out via email at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
+        <p>You can also find me on <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a> and <a href="https://twitter.com/yourprofile">Twitter</a>.</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
 </body>
 </html>
