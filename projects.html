@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Blake Andersen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  h1.page-title { font-size: clamp(2.6rem, 6vw, 4.2rem); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .project-card {
+    border: 1.5px solid var(--rule);
+    padding: 1.6rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.2s ease;
+    position: relative;
+  }
+
+  .project-card:hover { border-color: var(--ink); }
+
+  .project-card--placeholder {
+    border-style: dashed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .proj-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+  .status-dot--active { background: var(--accent2); }
+  .status-dot--wip { background: var(--accent); }
+
+  .proj-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .proj-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  .proj-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.3rem;
+  }
+
+  .proj-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    background: var(--paper2);
+    border: 1px solid var(--rule);
+    color: var(--muted);
+  }
+
+  .proj-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--accent2);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+    margin-top: auto;
+  }
+
+  .proj-link:hover { color: var(--accent); }
+
+  /* note at bottom */
+  .projects-note {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-style: italic;
+    font-weight: 300;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    max-width: 480px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav animate">
+  <a class="nav-logo" href="index.html">Blake Andersen</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="links.html">Links</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <p class="eyebrow animate">Projects</p>
+  <h1 class="page-title animate d1">Things I've<br><em>worked on</em></h1>
+  <p class="page-intro animate d2">Research, side projects, experiments. Some finished. Some ongoing. Some I'm not sure about yet.</p>
+</div>
+
+<div class="page-content">
+
+  <div class="projects-grid animate d3">
+
+    <!-- Placeholder project 1 — edit this with your actual research -->
+    <div class="project-card">
+      <div class="proj-status">
+        <span class="status-dot status-dot--active"></span>
+        <span>Active · PhD Research</span>
+      </div>
+      <div class="proj-title">Your Research Here</div>
+      <p class="proj-desc">Add a description of your PhD research — what problem you're working on, what methods you use, what you hope to find. A few sentences is plenty.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Mechanical Engineering</span>
+        <span class="proj-tag">Stanford</span>
+      </div>
+    </div>
+
+    <!-- Placeholder project 2 -->
+    <div class="project-card">
+      <div class="proj-status">
+        <span class="status-dot status-dot--wip"></span>
+        <span>In progress</span>
+      </div>
+      <div class="proj-title">Side Project</div>
+      <p class="proj-desc">Got a side project? A tool you built, something you're tinkering with, a paper you wrote? Add it here.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Whatever applies</span>
+      </div>
+    </div>
+
+    <!-- Placeholder project 3 -->
+    <div class="project-card project-card--placeholder">
+      <div class="proj-status">
+        <span class="status-dot"></span>
+        <span>Coming soon</span>
+      </div>
+      <div class="proj-title">More to come</div>
+      <p class="proj-desc">This page is a stub — add your own projects and replace these placeholders.</p>
+    </div>
+
+  </div>
+
+  <p class="projects-note animate d4">This page is a template — swap in your actual research and projects. I left placeholders so the layout makes sense, but the content is all yours to fill in.</p>
+
+</div>
+
+<footer>
+  <p>© 2025 Blake Andersen</p>
+  <span class="footer-badge">Stanford · ME · PhD</span>
+</footer>
+
+</body>
+</html>

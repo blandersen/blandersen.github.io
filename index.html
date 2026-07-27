@@ -1,91 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #2a3fa7;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        nav {
-            margin: 0;
-            text-align: center;
-            padding: 1em 0;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #2a3fa7;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            max-width: 800px;
-            margin: 2em auto;
-            padding: 0 1em;
-        }
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background-color: #333;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blake Andersen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── HOME-SPECIFIC ── */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem 3rem;
+    position: relative;
+  }
+
+  .stamp {
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    width: 84px;
+    height: 84px;
+    border: 2.5px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    color: var(--accent);
+    transform: rotate(12deg);
+    opacity: 0.8;
+    line-height: 1.5;
+    padding: 10px;
+    letter-spacing: 0.04em;
+  }
+  .stamp::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px dashed var(--accent);
+    border-radius: 50%;
+    opacity: 0.45;
+  }
+
+  .hero-name {
+    font-size: clamp(3.5rem, 9vw, 6.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-tagline {
+    font-family: 'Karla', sans-serif;
+    font-size: 1.1rem;
+    color: var(--muted);
+    font-style: italic;
+    font-weight: 300;
+    max-width: 360px;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+  }
+
+  /* Page cards grid */
+  .page-grid {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .page-card {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1.5px solid var(--rule);
+    padding: 1.5rem 1.6rem;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .page-card::after {
+    content: '↗';
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1.4rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    color: var(--rule);
+    transition: all 0.2s ease;
+  }
+
+  .page-card:hover {
+    border-color: var(--accent);
+    background: rgba(196,64,10,0.04);
+  }
+
+  .page-card:hover::after { color: var(--accent); transform: translate(2px, -2px); }
+
+  .pc-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .pc-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.7rem;
+    font-style: italic;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .pc-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.5;
+    padding-right: 1.5rem;
+  }
+
+  /* About blurb on homepage */
+  .home-about {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 640px) {
+    .home-about { grid-template-columns: 1fr; gap: 1.5rem; }
+    .stamp { display: none; }
+    .page-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 420px) {
+    .page-grid { grid-template-columns: 1fr; }
+  }
+
+  .home-about p {
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 0.9rem;
+    max-width: 500px;
+  }
+  .home-about p:last-child { margin-bottom: 0; }
+
+  .info-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .info-chip {
+    border: 1px solid var(--rule);
+    background: var(--paper2);
+    padding: 0.8rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .chip-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .chip-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Blake Andersen</h1>
-        <p>A little guy in a big world.</p>
-    </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#favorites">Favorites</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi. I'm a PhD student at Stanford University in Mechanical Engineering.</p>
-    </section>
-    <section id="favorites">
-        <h2>Favorites</h2>
-        <p>Here's some cool stuff:</p>
-        <ul>
-            <li><a href="https://everynoise.com/">everynoise.com</a> - discover new music</li>
-            <li><a href="https://radio.garden/">radio.garden</a> - listen to the radio around the world</li>
-            <li><a href="https://noisekun.com//">Noisekun</a> - custom focus sounds with pomodoro built in</li>
-            <li><a href="https://www.reincarnationresearch.com/">www.reincarnationresearch.com</a> </li>
-            <li><a href="https://www.pickyourbaby.com/">www.pickyourbaby.com</a> </li>
-            <li><a href="https://www.webuyskin.com/">www.webuyskin.com</a> </li>
-            <li><a href="https://www.soul-net.co/">www.soul-net.co</a> </li>
-            <li><a href="https://yvettesbridalformal.p1r8.net/">https://yvettesbridalformal.p1r8.net/</a> </li>
-            <li><a href="https://templeos.org/">https://templeos.org/</a> </li>
-            <li><a href="https://taxi1010.com/">https://taxi1010.com/</a> </li>
-        </ul>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out via email at <a href="mailto:blake.andersen@stanford.edu">blake_dot_andersen_at_stanford_dot_edu</a>.</p>
-        <p>You can also find me on <a href="https://www.linkedin.com/in/blake-c-andersen">LinkedIn</a></p>
-    </section>
-    <footer>
-        <p>&copy; 2024 Blake Andersen. All rights reserved.</p>
-    </footer>
+
+<nav class="site-nav animate">
+  <a class="nav-logo" href="index.html">Blake Andersen</a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="links.html">Links</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="hero animate d1">
+  <div class="stamp">Stanford<br>ME PhD<br>· · ·<br>CA 94305</div>
+  <p class="eyebrow">Personal site</p>
+  <h1 class="hero-name">Blake<br>Andersen</h1>
+  <p class="hero-tagline">A little guy in a big world.</p>
+</div>
+
+<div class="home-about animate d2">
+  <div>
+	  <p>Hi. I'm a PhD student at Stanford University in Mechanical Engineering. I am generally interested in flow physics problems with reactions. I hold a B.S. in Aerospace Engineering and an M.S. in Mechanical Engineering from University of California San Diego.</p>
+    <p>Outside the lab I like going down internet rabbit holes and finding new music.</p>
+  </div>
+  <div class="info-stack">
+    <div class="info-chip card--tilted">
+      <span class="chip-label">Location</span>
+      <span class="chip-value">Stanford, CA</span>
+    </div>
+    <div class="info-chip card--tilted2">
+      <span class="chip-label">Degree</span>
+      <span class="chip-value">Mechical Engineering PhD</span>
+    </div>
+    <div class="info-chip">
+      <span class="chip-label">Status</span>
+      <span class="chip-value">In the lab, probably</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider animate d3"><span>Explore</span></div>
+
+<div class="page-grid animate d4">
+  <a class="page-card" href="links.html">
+    <span class="pc-num">01 / Links</span>
+    <span class="pc-title">Cool stuff</span>
+    <p class="pc-desc">Weird corners of the internet.</p>
+  </a>
+  <a class="page-card" href="projects.html">
+    <span class="pc-num">02 / Projects</span>
+    <span class="pc-title">Things I've built</span>
+    <p class="pc-desc">Research, side projects, and work in progress.</p>
+  </a>
+  <a class="page-card" href="contact.html">
+    <span class="pc-num">03 / Contact</span>
+    <span class="pc-title">Say hello</span>
+    <p class="pc-desc">Email, LinkedIn. I'm happy to hear from you.</p>
+  </a>
+</div>
+
+<footer class="animate d5">
+  <p>© 2025 Blake Andersen</p>
+  <span class="footer-badge"></span>
+</footer>
+
 </body>
 </html>

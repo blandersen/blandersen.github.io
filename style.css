@@ -1,0 +1,278 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #1a1714;
+  --paper: #f5f0e8;
+  --paper2: #ede8dc;
+  --accent: #c4400a;
+  --accent2: #2a5c45;
+  --muted: #7a7268;
+  --rule: #c8c0b0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Karla', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.6;
+}
+
+/* ── NAV ── */
+.site-nav {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1.4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-logo:hover { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 5px 12px;
+  border-radius: 100px;
+  transition: all 0.18s ease;
+  border: 1.5px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+  border-color: var(--rule);
+}
+
+.nav-links a.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(196,64,10,0.06);
+}
+
+/* ── PAGE HEADER ── */
+.page-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2rem;
+}
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.eyebrow::after {
+  content: '';
+  flex: 0 0 28px;
+  height: 1px;
+  background: var(--accent2);
+  opacity: 0.5;
+}
+
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+h1 em { font-style: italic; color: var(--accent); }
+
+.page-intro {
+  font-size: 1rem;
+  color: var(--muted);
+  font-style: italic;
+  font-weight: 300;
+  max-width: 480px;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* ── MAIN CONTENT ── */
+.page-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.divider span {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--rule);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+footer p {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.footer-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  padding: 3px 8px;
+  letter-spacing: 0.06em;
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--paper2);
+  border: 1px solid var(--rule);
+  padding: 1.4rem 1.6rem;
+  position: relative;
+}
+
+.card--tilted { transform: rotate(-1deg); }
+.card--tilted2 { transform: rotate(0.7deg); }
+
+.card-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
+/* ── TAGS ── */
+.tag {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  margin-left: 7px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+.tag--weird { color: var(--accent); }
+.tag--cool { color: var(--accent2); }
+.tag--wip { color: var(--muted); }
+
+/* ── LINK LIST (used on links page) ── */
+.link-list { list-style: none; }
+.link-list li {
+  border-top: 1px solid var(--rule);
+  padding: 0.9rem 0;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+.link-list li:last-child { border-bottom: 1px solid var(--rule); }
+.link-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  min-width: 22px;
+}
+.link-content { flex: 1; }
+.link-main {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  display: block;
+  transition: color 0.15s;
+}
+.link-main:hover { color: var(--accent); }
+.link-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; margin-top: 1px; }
+.link-arrow { font-size: 0.85rem; color: var(--rule); font-family: 'Space Mono', monospace; transition: color 0.15s; }
+.link-list li:hover .link-arrow { color: var(--accent); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate { animation: fadeUp 0.5s ease both; }
+.d1 { animation-delay: 0.07s; }
+.d2 { animation-delay: 0.14s; }
+.d3 { animation-delay: 0.21s; }
+.d4 { animation-delay: 0.28s; }
+.d5 { animation-delay: 0.35s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .nav-links a span { display: none; }
+  h1 { font-size: 2.8rem !important; }
+}
