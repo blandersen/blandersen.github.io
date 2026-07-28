@@ -15,36 +15,38 @@
     margin: 0 auto;
     padding: 4.5rem 2rem 3rem;
     position: relative;
-  }
-
-  .stamp {
-    position: absolute;
-    top: 3rem;
-    right: 2rem;
-    width: 84px;
-    height: 84px;
-    border: 2.5px solid var(--accent);
-    border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Space Mono', monospace;
-    font-size: 8.5px;
-    color: var(--accent);
-    transform: rotate(12deg);
-    opacity: 0.8;
-    line-height: 1.5;
-    padding: 10px;
-    letter-spacing: 0.04em;
+    gap: 2.5rem;
   }
-  .stamp::after {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    border: 1px dashed var(--accent);
-    border-radius: 50%;
-    opacity: 0.45;
+  .hero-text { flex: 1 1 auto; min-width: 0; }
+  .hero-portrait {
+    flex: 0 0 auto;
+    width: clamp(150px, 24vw, 210px);
+    align-self: center;
+  }
+
+  .home-social {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .home-social a {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 6px 14px;
+    border: 1.5px solid var(--rule);
+    border-radius: 100px;
+    transition: all 0.18s ease;
+  }
+  .home-social a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   .hero-name {
@@ -59,7 +61,7 @@
     font-style: italic;
     font-weight: 300;
     max-width: 360px;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
     line-height: 1.5;
   }
 
@@ -144,8 +146,9 @@
   }
 
   @media (max-width: 640px) {
+    .hero { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .hero-portrait { width: clamp(150px, 45vw, 200px); }
     .home-about { grid-template-columns: 1fr; gap: 1.5rem; }
-    .stamp { display: none; }
     .page-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 420px) {
@@ -159,6 +162,20 @@
     max-width: 500px;
   }
   .home-about p:last-child { margin-bottom: 0; }
+
+  .portrait {
+    margin: 0;
+    border: 1px solid var(--rule);
+    background: var(--paper2);
+    padding: 6px;
+    line-height: 0;
+    box-shadow: 2px 3px 0 rgba(26,23,20,0.07);
+  }
+  .portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 
   .info-stack {
     display: flex;
@@ -199,22 +216,29 @@
     <a href="index.html" class="active">Home</a>
     <a href="cv.html">CV</a>
     <a href="links.html">Links</a>
-    <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
 <div class="hero animate d1">
-  <div class="stamp">Stanford<br>ME PhD<br>· · ·<br>CA 94305</div>
-  <p class="eyebrow">Personal site</p>
-  <h1 class="hero-name">Blake<br>Andersen</h1>
-  <p class="hero-tagline">A little guy in a big world.</p>
+  <div class="hero-text">
+    <p class="eyebrow">Personal site</p>
+    <h1 class="hero-name">Blake<br>Andersen</h1>
+    <p class="hero-tagline">A little guy in a big world.</p>
+  </div>
+  <figure class="portrait hero-portrait">
+    <img src="blakie.jpeg" alt="Blake Andersen" loading="lazy">
+  </figure>
 </div>
 
 <div class="home-about animate d2">
   <div>
 	  <p>Hi. I'm a PhD student at Stanford University in Mechanical Engineering. I am generally interested in flow physics problems with reactions. I hold a B.S. in Aerospace Engineering and an M.S. in Mechanical Engineering from University of California San Diego.</p>
     <p>Outside the lab I like going down internet rabbit holes and finding new music.</p>
+    <div class="home-social">
+      <a href="https://github.com/blandersen/" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/blake-c-andersen/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
   </div>
   <div class="info-stack">
     <div class="info-chip card--tilted">
@@ -223,7 +247,7 @@
     </div>
     <div class="info-chip card--tilted2">
       <span class="chip-label">Degree</span>
-      <span class="chip-value">Mechical Engineering PhD</span>
+      <span class="chip-value">Mechanical Engineering PhD</span>
     </div>
     <div class="info-chip">
       <span class="chip-label">Status</span>
@@ -237,21 +261,16 @@
 <div class="page-grid animate d4">
   <a class="page-card" href="cv.html">
     <span class="pc-num">01 / CV</span>
-    <span class="pc-title">The formal version</span>
+    <span class="pc-title">Curriculum Vitae</span>
     <p class="pc-desc">Education, publications, and conference talks.</p>
   </a>
-  <a class="page-card" href="projects.html">
-    <span class="pc-num">02 / Projects</span>
-    <span class="pc-title">Things I've built</span>
-    <p class="pc-desc">Research, side projects, and work in progress.</p>
-  </a>
   <a class="page-card" href="links.html">
-    <span class="pc-num">03 / Links</span>
+    <span class="pc-num">02 / Links</span>
     <span class="pc-title">Cool stuff</span>
     <p class="pc-desc">Weird corners of the internet.</p>
   </a>
   <a class="page-card" href="contact.html">
-    <span class="pc-num">04 / Contact</span>
+    <span class="pc-num">03 / Contact</span>
     <span class="pc-title">Say hello</span>
     <p class="pc-desc">Email, LinkedIn. I'm happy to hear from you.</p>
   </a>
