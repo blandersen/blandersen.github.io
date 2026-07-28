@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Blake Andersen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  h1.page-title { font-size: clamp(2rem, 4.5vw, 2.9rem); font-style: normal; }
+
+  /* ── SECTIONS ── */
+  .cv-section { margin-bottom: 3.2rem; }
+
+  .cv-section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .cv-section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    white-space: nowrap;
+  }
+
+  .cv-section-line { flex: 1; height: 1px; background: var(--rule); }
+
+  .cv-count {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* ── ENTRIES (shared) ── */
+  .cv-entry {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 1.4rem;
+    padding: 1.35rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .cv-entry:last-child { border-bottom: 1px solid var(--rule); }
+
+  .cv-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+    padding-top: 0.3rem;
+  }
+
+  @media (max-width: 560px) {
+    .cv-entry { grid-template-columns: 1fr; gap: 0.5rem; }
+    .cv-year { padding-top: 0; }
+  }
+
+  /* ── EDUCATION ── */
+  .cv-degree {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.45rem;
+    font-style: italic;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .cv-inst { font-size: 0.98rem; color: var(--ink); margin-top: 0.2rem; }
+  .cv-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.45rem;
+  }
+
+  /* ── PUBLICATIONS / PRESENTATIONS ── */
+  .cv-pub-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .cv-authors {
+    font-size: 0.88rem;
+    color: var(--ink);
+    font-weight: 300;
+    margin-top: 0.5rem;
+  }
+  .cv-authors .me { font-weight: 700; font-style: normal; }
+
+  .cv-venue {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    color: var(--accent2);
+    text-decoration: none;
+    margin-top: 0.6rem;
+    transition: color 0.15s;
+  }
+  .cv-venue:hover { color: var(--accent); }
+  .cv-venue::after { content: '↗'; font-size: 11px; }
+
+  .cv-venue-static {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    color: var(--accent2);
+    margin-top: 0.6rem;
+  }
+
+  .cv-pub-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    background: var(--paper2);
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  .cv-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.55;
+    margin-top: 0.55rem;
+    max-width: 620px;
+  }
+
+  /* inline links inside entries (advisor, orgs) — not the venue links */
+  .cv-body a:not(.cv-venue) {
+    color: var(--accent2);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .cv-body a:not(.cv-venue):hover { color: var(--accent); border-color: var(--accent); }
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav animate">
+  <a class="nav-logo" href="index.html">Blake Andersen</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="cv.html" class="active">CV</a>
+    <a href="links.html">Links</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <p class="eyebrow animate">Curriculum Vitae</p>
+  <h1 class="page-title animate d1">Blake Andersen</h1>
+  <p class="page-intro animate d2">Education, publications, and conference presentations. Research focus: large eddy simulation of turbulent reacting flows, with an emphasis on ammonia-based fuels.</p>
+</div>
+
+<div class="page-content">
+
+  <!-- ══════════ EDUCATION ══════════ -->
+  <div class="cv-section animate d3">
+    <div class="cv-section-header">
+      <span class="cv-section-title">Education</span>
+      <span class="cv-section-line"></span>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2024 — present</div>
+      <div class="cv-body">
+        <div class="cv-degree">Ph.D. Candidate, Mechanical Engineering</div>
+        <div class="cv-inst">Stanford University · Stanford, CA</div>
+        <div class="cv-meta">Turbulent combustion · Large Eddy Simulation</div>
+        <p class="cv-desc">Advisor: <a href="https://me.stanford.edu/people/matthias-ihme" target="_blank" rel="noopener">Matthias Ihme</a> · <a href="https://fxlab.stanford.edu" target="_blank" rel="noopener">FX Lab</a></p>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2024</div>
+      <div class="cv-body">
+        <div class="cv-degree">M.S. Mechanical Engineering</div>
+        <div class="cv-inst">University of California San Diego · La Jolla, CA</div>
+        <div class="cv-meta">Experimental multiphase flows · Hydrodynamics</div>
+        <p class="cv-desc">Advisor: <a href="https://jacobsschool.ucsd.edu/people/profile/abhishek-saha" target="_blank" rel="noopener">Abhishek Saha</a>. Thesis: An experimental investigation of post-coalescence mixing of droplets impacted on shallow pools.</p>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2023</div>
+      <div class="cv-body">
+        <div class="cv-degree">B.S. Aerospace Engineering</div>
+        <div class="cv-inst">University of California San Diego · La Jolla, CA</div>
+        <p class="cv-desc">Tau Beta Pi Engineering Honor Society · <a href="https://www.rocketproplab.org/" target="_blank" rel="noopener">Rocket Propulsion Laboratory</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ PUBLICATIONS ══════════ -->
+  <div class="cv-section animate d4">
+    <div class="cv-section-header">
+      <span class="cv-section-title">Publications</span>
+      <span class="cv-section-line"></span>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2026</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Species-specific compliance indicator for diagnosis of combustion model fidelity</div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Jen Zen Ho, Matthias Ihme</p>
+        <span class="cv-venue-static">Proceedings of the Combustion Institute · accepted 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ CONFERENCE PRESENTATIONS ══════════ -->
+  <div class="cv-section animate d5">
+    <div class="cv-section-header">
+      <span class="cv-section-title">Conference Presentations</span>
+      <span class="cv-section-line"></span>
+      <span class="cv-count">8 contributions</span>
+    </div>
+
+    <!-- APS DFD 2026, Orlando -->
+    <div class="cv-entry">
+      <div class="cv-year">Nov 2026</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Towards an Agentic Screening and Optimization Framework for Burner Geometries Across Operating Conditions</div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Matthias Ihme</p>
+        <span class="cv-venue-static">APS Division of Fluid Dynamics (DFD) · Orlando, FL</span>
+      </div>
+    </div>
+
+    <!-- 41st International Symposium on Combustion 2026, Kyoto (Poster) -->
+    <div class="cv-entry">
+      <div class="cv-year">Jul 2026</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Species-specific compliance indicator for diagnosis of combustion model fidelity<span class="cv-pub-tag">Poster</span></div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Jen Zen Ho, Matthias Ihme</p>
+        <a class="cv-venue" href="https://www.combustionsymposia.org/" target="_blank" rel="noopener">41st International Symposium on Combustion · Kyoto, Japan</a>
+      </div>
+    </div>
+
+    <!-- 1 — ICNC 2025, Rome -->
+    <div class="cv-entry">
+      <div class="cv-year">Oct 2025</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Pareto-efficient combustion modeling for extinction prediction in LES of a piloted partially premixed NH<sub>3</sub>/H<sub>2</sub>/N<sub>2</sub>-air turbulent jet flame</div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Jen Zen Ho, Guillaume Vignat, Matthew Bonanni, Hao Tang, Gaetano Magnotti, Davy Brouzet, Matthias Ihme</p>
+        <a class="cv-venue" href="https://www.icnc2025.com/program/" target="_blank" rel="noopener">20th International Conference on Numerical Combustion (ICNC 2025) · Rome, Italy</a>
+        <p class="cv-desc">Large eddy simulations of a canonical piloted jet flame to assess and compare state-of-the-art turbulent combustion modeling techniques for NH<sub>3</sub> flames.</p>
+      </div>
+    </div>
+
+    <!-- 2 — AIChE HIT 2025, Houston (Poster) -->
+    <div class="cv-entry">
+      <div class="cv-year">Oct 2025</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Large eddy simulation of turbulent partially premixed NH<sub>3</sub>-air flames: from academic configurations to pilot-scale industrial furnaces<span class="cv-pub-tag">Poster</span></div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Jen Zen Ho, Guillaume Vignat, Matthew Bonanni, Davy Brouzet, Matthias Ihme</p>
+        <a class="cv-venue" href="https://www.aiche.org/ifs/conferences/hydrogen-innovation-and-technology-conference/2025/poster-session" target="_blank" rel="noopener">AIChE Hydrogen Innovation &amp; Technology Conference · Houston, TX</a>
+        <p class="cv-desc">Large eddy simulations at academic and industrial scales to predict the behavior of ammonia flames using finite-rate chemistry, the flamelet/progress variable approach, and RANS–LES embedding techniques.</p>
+      </div>
+    </div>
+
+    <!-- 3 — 4th Symposium on Ammonia Energy, Minneapolis -->
+    <div class="cv-entry">
+      <div class="cv-year">Sep — Oct 2025</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Pareto-efficient combustion modeling for turbulent partially premixed NH<sub>3</sub>/H<sub>2</sub>/N<sub>2</sub>-air jet flames</div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Jen Zen Ho, Guillaume Vignat, Matthew Bonanni, Matthias Ihme</p>
+        <a class="cv-venue" href="https://soae.umn.edu/program/agenda" target="_blank" rel="noopener">4th Symposium on Ammonia Energy (SoAE), University of Minnesota · Minneapolis, MN</a>
+        <p class="cv-desc">Large eddy simulations exploring the limitations of the flamelet/progress variable approach via the Pareto-efficient combustion framework with finite-rate chemistry of stiff chemical mechanisms.</p>
+      </div>
+    </div>
+
+    <!-- 4 — 14th US National Combustion Meeting, Boston -->
+    <div class="cv-entry">
+      <div class="cv-year">Mar 2025</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Assessment of flame structure and extinction prediction in piloted turbulent partially premixed NH<sub>3</sub>/H<sub>2</sub>/N<sub>2</sub>-air jet flames with the flamelet/progress variable approach</div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Jen Zen Ho, Guillaume Vignat, Matthew Bonanni, Hao Tang, Gaetano Magnotti, Davy Brouzet, Matthias Ihme</p>
+        <a class="cv-venue" href="https://combustioninstitute.wixsite.com/14th-usncm/technical-program" target="_blank" rel="noopener">14th U.S. National Combustion Meeting (USNCM) · Boston, MA</a>
+        <p class="cv-desc">Large eddy simulations of partially premixed NH<sub>3</sub>/H<sub>2</sub>/N<sub>2</sub> flames to assess the validity of the flamelet/progress variable closure for turbulent combustion and extinction prediction.</p>
+      </div>
+    </div>
+
+    <!-- APS DFD 2024, Salt Lake City -->
+    <div class="cv-entry">
+      <div class="cv-year">Nov 2024</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Mixing dynamics of droplets impacted on liquid films</div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Kusal Uprety, Abhishek Saha</p>
+        <a class="cv-venue" href="https://meetings.aps.org/Meeting/DFD24/Session/R09.7" target="_blank" rel="noopener">APS Division of Fluid Dynamics (DFD) · Salt Lake City, UT</a>
+      </div>
+    </div>
+
+    <!-- 5 — So Cal Fluids XVII, UC Irvine, Apr 2024 (Poster) -->
+    <div class="cv-entry">
+      <div class="cv-year">Apr 2024</div>
+      <div class="cv-body">
+        <div class="cv-pub-title">Post-coalescence vortex dynamics and mixing of a droplet impacted on a liquid pool<span class="cv-pub-tag">Poster</span></div>
+        <p class="cv-authors"><span class="me">Blake Andersen</span>, Kusal Uprety, Abhishek Saha</p>
+        <a class="cv-venue" href="https://sites.uci.edu/socalfluidsxvii/" target="_blank" rel="noopener">17th Southern California Flow Physics Symposium (So Cal Fluids XVII), UC Irvine · Irvine, CA</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════ PROFESSIONAL MEMBERSHIPS ══════════ -->
+  <div class="cv-section animate d5">
+    <div class="cv-section-header">
+      <span class="cv-section-title">Professional Memberships</span>
+      <span class="cv-section-line"></span>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">Member</div>
+      <div class="cv-body">
+        <div class="cv-degree">The Combustion Institute</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">Member</div>
+      <div class="cv-body">
+        <div class="cv-degree">American Physical Society</div>
+        <div class="cv-inst">Division of Fluid Dynamics (DFD)</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Blake Andersen</p>
+  <span class="footer-badge">Stanford · ME · PhD</span>
+</footer>
+
+</body>
+</html>
