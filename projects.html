@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Blake Andersen</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
   h1.page-title { font-size: clamp(2.6rem, 6vw, 4.2rem); }
@@ -42,8 +39,9 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--sans);
     font-size: 9.5px;
+    font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -60,17 +58,17 @@
   .status-dot--wip { background: var(--accent); }
 
   .proj-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.5rem;
-    font-style: italic;
+    font-family: var(--sans);
+    font-size: 1.25rem;
+    font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.025em;
   }
 
   .proj-desc {
     font-size: 0.9rem;
     color: var(--muted);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.55;
     flex: 1;
   }
@@ -83,8 +81,9 @@
   }
 
   .proj-tag {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--sans);
     font-size: 9px;
+    font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 2px 8px;
@@ -94,9 +93,11 @@
   }
 
   .proj-link {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--sans);
     font-size: 10px;
-    letter-spacing: 0.06em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--accent2);
     text-decoration: none;
     display: inline-flex;
@@ -112,8 +113,7 @@
   .projects-note {
     font-size: 0.9rem;
     color: var(--muted);
-    font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     border-left: 2px solid var(--rule);
     padding-left: 1rem;
     max-width: 480px;

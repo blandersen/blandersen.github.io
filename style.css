@@ -4,10 +4,12 @@
   --ink: #1a1714;
   --paper: #f5f0e8;
   --paper2: #ede8dc;
-  --accent: #c4400a;
+  --accent: #356cc4;
+  --accent-wash: rgba(53,108,196,0.06);
   --accent2: #2a5c45;
   --muted: #7a7268;
   --rule: #c8c0b0;
+  --sans: Helvetica, 'Helvetica Neue', Arial, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -15,11 +17,12 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Karla', sans-serif;
+  font-family: var(--sans);
   font-size: 17px;
   line-height: 1.65;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Grain */
@@ -46,12 +49,12 @@ body::before {
 }
 
 .nav-logo {
-  font-family: 'Instrument Serif', serif;
-  font-size: 1.25rem;
-  font-style: italic;
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
 }
 
 .nav-logo:hover { color: var(--accent); }
@@ -63,8 +66,9 @@ body::before {
 }
 
 .nav-links a {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--sans);
   font-size: 10.5px;
+  font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   text-decoration: none;
@@ -83,7 +87,7 @@ body::before {
 .nav-links a.active {
   color: var(--accent);
   border-color: var(--accent);
-  background: rgba(196,64,10,0.06);
+  background: var(--accent-wash);
 }
 
 /* ── PAGE HEADER ── */
@@ -94,8 +98,9 @@ body::before {
 }
 
 .eyebrow {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--sans);
   font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent2);
@@ -114,20 +119,19 @@ body::before {
 }
 
 h1 {
-  font-family: 'Instrument Serif', serif;
-  font-weight: 400;
+  font-family: var(--sans);
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
   color: var(--ink);
 }
 
-h1 em { font-style: italic; color: var(--accent); }
+h1 em { font-style: normal; color: var(--accent); }
 
 .page-intro {
   font-size: 1rem;
   color: var(--muted);
-  font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 480px;
   margin-top: 1rem;
   line-height: 1.6;
@@ -151,8 +155,9 @@ h1 em { font-style: italic; color: var(--accent); }
 }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 .divider span {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--sans);
   font-size: 10px;
+  font-weight: 700;
   color: var(--muted);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -173,19 +178,23 @@ footer {
 }
 
 footer p {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--sans);
   font-size: 10px;
+  font-weight: 700;
   color: var(--muted);
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .footer-badge {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--sans);
   font-size: 9px;
+  font-weight: 700;
   color: var(--muted);
   border: 1px solid var(--rule);
   padding: 3px 8px;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* ── CARDS ── */
@@ -196,12 +205,10 @@ footer p {
   position: relative;
 }
 
-.card--tilted { transform: rotate(-1deg); }
-.card--tilted2 { transform: rotate(0.7deg); }
-
 .card-title {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--sans);
   font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -211,8 +218,9 @@ footer p {
 /* ── TAGS ── */
 .tag {
   display: inline-block;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--sans);
   font-size: 9px;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 2px 7px;
@@ -238,25 +246,26 @@ footer p {
 }
 .link-list li:last-child { border-bottom: 1px solid var(--rule); }
 .link-num {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--sans);
   font-size: 10px;
+  font-weight: 700;
   color: var(--muted);
   min-width: 22px;
 }
 .link-content { flex: 1; }
 .link-main {
-  font-family: 'Instrument Serif', serif;
-  font-size: 1.3rem;
-  font-style: italic;
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   display: block;
   transition: color 0.15s;
 }
 .link-main:hover { color: var(--accent); }
-.link-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; margin-top: 1px; }
-.link-arrow { font-size: 0.85rem; color: var(--rule); font-family: 'Space Mono', monospace; transition: color 0.15s; }
+.link-desc { font-size: 0.85rem; color: var(--muted); font-weight: 400; margin-top: 1px; }
+.link-arrow { font-size: 0.85rem; color: var(--rule); font-family: var(--sans); transition: color 0.15s; }
 .link-list li:hover .link-arrow { color: var(--accent); }
 
 /* ── ANIMATIONS ── */
